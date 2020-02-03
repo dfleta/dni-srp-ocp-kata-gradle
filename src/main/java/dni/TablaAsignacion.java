@@ -1,4 +1,4 @@
-package dni;
+package main.java.dni;
 
 public class TablaAsignacion {
 
