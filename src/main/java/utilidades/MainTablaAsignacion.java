@@ -1,10 +1,10 @@
-package main.java.utilidades;
+package utilidades;
 
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import main.java.dni.TablaAsignacion;
+import dni.TablaAsignacion;
 
 public class MainTablaAsignacion {
 

@@ -1,4 +1,4 @@
-package main.java.dni;
+package dni;
 
 import java.io.IOException;
 

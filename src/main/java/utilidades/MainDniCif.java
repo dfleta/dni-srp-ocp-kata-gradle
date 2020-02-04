@@ -1,10 +1,10 @@
-package main.java.utilidades;
+package utilidades;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import main.java.dni.DniCif;
+import dni.DniCif;
 
 public class MainDniCif {
 
