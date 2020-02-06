@@ -2,113 +2,121 @@ package dni;
 	
 public class DniCif {
 	
-		private String dni  = null;
-		private Boolean numeroSano = false;
-		private Boolean letraSana = false;
-		private Boolean dniCifSano = false;
-		private final byte LONGITUD_DNI = 9;
-		// "Has - a" / "Tiene - una"
-		private TablaAsignacion tabla = new TablaAsignacion();
-	
-		public DniCif(String dni) {
-			this.dni = dni;
-		}
-		
-		/* Encapsulacion */
-		
-		public void setDni(String cadena) {
-			this.dni = cadena;
-		}
+	private String dni = null;
+	private Boolean numeroSano = false;
+	private Boolean letraSana = false;
+	private Boolean dniCifSano = false;
+	private final byte LONGITUD_DNI = 9;
+	// "Has - a" / "Tiene - una"
+	private TablaAsignacion tabla = new TablaAsignacion();
 
-		public String getDni() {
-			return this.dni;
+	public DniCif(String dni) {
+		this.dni = dni;
+	}
+
+	/**
+	 * Encapsulacion
+	 */
+
+	private String getDni() {
+		return this.dni;
+	}
+
+	private void setNumeroSano(Boolean valor) {
+		this.numeroSano = valor;
+	}
+
+	private Boolean isNumeroSano() {
+		return this.numeroSano;
+	}
+
+	private void setLetraSana(Boolean valor) {
+		this.letraSana = valor;
+	}
+
+	private Boolean isLetraSana() {
+		return this.letraSana;
+	}
+
+	private void setDniSano(Boolean valor) {
+		this.dniCifSano = valor;
+	}
+
+	private Boolean isDniSano() {
+		return this.dniCifSano;
+	}
+
+	/**
+	 * Interfaz Pública
+	 */
+
+	@Override
+	public String toString() {
+		return getDni();
+	}
+
+	public Boolean checkDni() {
+		setDniSano(checkNumeroDni() && checkLetra());
+		return isDniSano();
+	}
+
+	public Boolean checkNumeroDni() {
+		setNumeroSano(checkLongitudDni() 
+						&& isDniNumero(extraerParteNumericaDni()));
+		return isNumeroSano();
+	}
+
+	public Boolean checkLetra() {
+		checkNumeroDni();
+		if (isNumeroSano()) {
+			setLetraSana(Character.isUpperCase(extraerParteAlfabeticaDni()) 
+							&& checkLetraValida());
+			return isLetraSana();
+		} else {
+			return false;
 		}
-	
-		private void setNumeroSano(Boolean valor) {
-			this.numeroSano = valor;
+	}
+
+	public Character obtenerLetra() {
+		// calcularLetra no puede ejecutarse si antes
+		// no se cumplen las condiciones previas en
+		// checkDni y checkLetra
+		checkNumeroDni();
+		if (isNumeroSano()) {
+			return this.tabla.calcularLetra(extraerParteNumericaDni());
+		} else {
+			// si el DNI no esta bien formado
+			return Character.MIN_VALUE;
 		}
-		
-		public Boolean isNumeroSano() {
-			return this.numeroSano;
-		}
-		
-		private void setLetraSana(Boolean valor) {
-			this.letraSana = valor;
-		}
-	
-		public Boolean isLetraSana() {
-			return this.letraSana;
-		}
-		
-		public void setDniCifSano(Boolean valor) {
-			this.dniCifSano = valor;
-		}
-		
-		public Boolean isDniCifSano() {
-			return this.dniCifSano;
-		}
-	
-		/* Interfaz Pública */
-		
-		public Boolean checkCIF() {
-			setDniCifSano(checkDni() && checkLetra());
-			return isDniCifSano();
-		}
-		
-		public Boolean checkDni() {
-			setNumeroSano(checkLongitud() 
-							&& isDniNumero(getParteNumericaDni()));
-			return isNumeroSano();
-		}
-		
-		public Boolean checkLetra() {
-			if (isNumeroSano()) {
-				setLetraSana (Character.isUpperCase(getParteAlfabeticaDni()) 
-								&& checkLetraValida());
-				return isLetraSana();
-			}
-			else {
+	}
+
+	/**
+	 * Implementacion 
+	 */
+
+	private Boolean checkLongitudDni() {
+		return getDni().length() == this.LONGITUD_DNI;
+	}
+
+	Boolean isDniNumero(String cadena) {
+		for (int i = 0; i < cadena.length(); i++) {
+			if (!Character.isDigit(cadena.charAt(i))) {
 				return false;
-			}
+			} else
+				;
 		}
-						
-		public Character obtenerLetra() {
-			// calcularLetra no puede ejecutarse si antes 
-			// no se cumplen las condiciones previas en
-			// checkDni y checkLetra
-			if (checkDni()) {
-				return this.tabla.calcularLetra(getParteNumericaDni());
-			} else {
-				// si el DNI no esta bien formado
-				return Character.MIN_VALUE;
-			}
-		}
-	
-	
-		public Boolean checkLongitud() {
-			return getDni().length() == this.LONGITUD_DNI;
-		}
-		
-		public Boolean isDniNumero(String cadena) {
-			for (int i = 0; i < cadena.length(); i++) {
-				if (!Character.isDigit(cadena.charAt(i))){
-					return false;
-				}
-				else;
-			}
-			return true;
-		}		
-			
-		public String getParteNumericaDni() {
-			return (String) dni.substring(0, dni.length() - 1);
-		}
-		
-		public Character getParteAlfabeticaDni() {
-			return dni.charAt(dni.length() - 1);
-		}
-		
-		public Boolean checkLetraValida() {
-			return getParteAlfabeticaDni() == obtenerLetra();				
-		}
+		return true;
+	}
 
+	String extraerParteNumericaDni() {
+		return (String) dni.substring(0, dni.length() - 1);
+	}
+
+	Character extraerParteAlfabeticaDni() {
+		return dni.charAt(dni.length() - 1);
+	}
+
+	private Boolean checkLetraValida() {
+		return extraerParteAlfabeticaDni() == obtenerLetra();
+	}
 }

@@ -1,6 +1,5 @@
 package utilidades;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -36,21 +35,21 @@ public class MainDniCif {
 		
 		for(String dni : casosTest){
 			DniCif objetoDniCif = new DniCif(dni);
-			System.out.print(objetoDniCif.getDni());
+			// System.out.print(objetoDniCif.getDni());
 			
-			if( objetoDniCif.checkCIF() ){
+			if( objetoDniCif.checkDni() ){
 				System.out.println(" PASS");
 			}
 			else
 				System.out.println(" FAIL");
 			
-			System.out.println("dni --> " + objetoDniCif.isNumeroSano());
-			System.out.println("letra --> " + objetoDniCif.isLetraSana());
+			// System.out.println("dni --> " + objetoDniCif.isNumeroSano());
+			// System.out.println("letra --> " + objetoDniCif.isLetraSana());
 			try{
 				System.out.println("La letra debería ser --> " + objetoDniCif.obtenerLetra());
 			}
 			catch(Exception ioexcepcion){
-				System.out.println("La letra es --> " + objetoDniCif.getParteAlfabeticaDni());
+				// System.out.println("La letra es --> " + objetoDniCif.getParteAlfabeticaDni());
 			}
 		}
 		
@@ -63,21 +62,21 @@ public class MainDniCif {
 		
 		for(String dni : casosTestPass){
 			DniCif objetoDniCif = new DniCif(dni);
-			System.out.print(objetoDniCif.getDni());
+			// System.out.print(objetoDniCif.getDni());
 			
-			if( objetoDniCif.checkCIF() ){
+			if( objetoDniCif.checkDni() ){
 				System.out.println(" PASS");
 			}
 			else
 				System.out.println(" FAIL");
 			
-			System.out.println("dni --> " + objetoDniCif.isNumeroSano());
-			System.out.println("letra --> " + objetoDniCif.isLetraSana());
+			// System.out.println("dni --> " + objetoDniCif.isNumeroSano());
+			// System.out.println("letra --> " + objetoDniCif.isLetraSana());
 			try{
 				System.out.println("La letra debería ser --> " + objetoDniCif.obtenerLetra());
 			}
 			catch(Exception ioexcepcion){
-				System.out.println("La letra es --> " + objetoDniCif.getParteAlfabeticaDni());
+				// System.out.println("La letra es --> " + objetoDniCif.getParteAlfabeticaDni());
 			}
 		}
 		

@@ -15,7 +15,8 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-            assertTrue(objetoDniCif.isDniNumero(objetoDniCif.getParteNumericaDni()));
+            assertTrue(objetoDniCif.isDniNumero(
+                        objetoDniCif.extraerParteNumericaDni()));
         }
     }
 
@@ -24,7 +25,7 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-            assertTrue(objetoDniCif.checkDni());
+            assertTrue(objetoDniCif.checkNumeroDni());
         }    
     }
 
@@ -33,7 +34,7 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-            assertEquals(objetoDniCif.getParteAlfabeticaDni(), 
+            assertEquals(objetoDniCif.extraerParteAlfabeticaDni(), 
                             objetoDniCif.obtenerLetra());
         }    
     }
@@ -43,7 +44,7 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-            objetoDniCif.checkDni();  
+            objetoDniCif.checkNumeroDni();  
             assertTrue(objetoDniCif.checkLetra());
         }
     }
@@ -53,7 +54,7 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);   
-            assertTrue(objetoDniCif.checkCIF());
+            assertTrue(objetoDniCif.checkDni());
         }
     }
 }
