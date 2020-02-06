@@ -44,12 +44,12 @@ public class MainDniCif {
 			else
 				System.out.println(" FAIL");
 			
-			System.out.println("dni --> " + objetoDniCif.getNumeroSano());
-			System.out.println("letra --> " + objetoDniCif.getLetraSana());
+			System.out.println("dni --> " + objetoDniCif.isNumeroSano());
+			System.out.println("letra --> " + objetoDniCif.isLetraSana());
 			try{
 				System.out.println("La letra debería ser --> " + objetoDniCif.obtenerLetra());
 			}
-			catch(IOException ioexcepcion){
+			catch(Exception ioexcepcion){
 				System.out.println("La letra es --> " + objetoDniCif.getParteAlfabeticaDni());
 			}
 		}
@@ -71,12 +71,12 @@ public class MainDniCif {
 			else
 				System.out.println(" FAIL");
 			
-			System.out.println("dni --> " + objetoDniCif.getNumeroSano());
-			System.out.println("letra --> " + objetoDniCif.getLetraSana());
+			System.out.println("dni --> " + objetoDniCif.isNumeroSano());
+			System.out.println("letra --> " + objetoDniCif.isLetraSana());
 			try{
 				System.out.println("La letra debería ser --> " + objetoDniCif.obtenerLetra());
 			}
-			catch(IOException ioexcepcion){
+			catch(Exception ioexcepcion){
 				System.out.println("La letra es --> " + objetoDniCif.getParteAlfabeticaDni());
 			}
 		}

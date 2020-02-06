@@ -15,7 +15,7 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-            assertTrue(objetoDniCif.stringEsNumero(objetoDniCif.getParteNumericaDni()));
+            assertTrue(objetoDniCif.isDniNumero(objetoDniCif.getParteNumericaDni()));
         }
     }
 
