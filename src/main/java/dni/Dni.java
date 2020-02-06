@@ -1,6 +1,6 @@
 package dni;
 	
-public class DniCif {
+public class Dni {
 	
 	private String dni = null;
 	private Boolean numeroSano = false;
@@ -10,7 +10,7 @@ public class DniCif {
 	// "Has - a" / "Tiene - una"
 	private TablaAsignacion tabla = new TablaAsignacion();
 
-	public DniCif(String dni) {
+	public Dni(String dni) {
 		this.dni = dni;
 	}
 

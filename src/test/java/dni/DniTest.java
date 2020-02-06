@@ -3,7 +3,7 @@ package dni;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class DniCifTest {
+public class DniTest {
 
     private static final String[] casosTestPass = { //casos OK
         "78484464T","72376173A","01817200Q","95882054E","63587725Q",
@@ -12,9 +12,9 @@ public class DniCifTest {
 
     @Test
     public void getParteNumericaDni_stringEsNumero() {
-        DniCif objetoDniCif = null;
+        Dni objetoDniCif = null;
         for(String dni : casosTestPass){
-            objetoDniCif = new DniCif(dni);
+            objetoDniCif = new Dni(dni);
             assertTrue(objetoDniCif.isDniNumero(
                         objetoDniCif.extraerParteNumericaDni()));
         }
@@ -22,18 +22,18 @@ public class DniCifTest {
 
     @Test
     public void checkDni() {
-        DniCif objetoDniCif = null;
+        Dni objetoDniCif = null;
         for(String dni : casosTestPass){
-            objetoDniCif = new DniCif(dni);
+            objetoDniCif = new Dni(dni);
             assertTrue(objetoDniCif.checkNumeroDni());
         }    
     }
 
     @Test
     public void obtenerLetra() {
-        DniCif objetoDniCif = null;
+        Dni objetoDniCif = null;
         for(String dni : casosTestPass){
-            objetoDniCif = new DniCif(dni);
+            objetoDniCif = new Dni(dni);
             assertEquals(objetoDniCif.extraerParteAlfabeticaDni(), 
                             objetoDniCif.obtenerLetra());
         }    
@@ -41,9 +41,9 @@ public class DniCifTest {
 
     @Test
     public void checkLetra() {
-        DniCif objetoDniCif = null;
+        Dni objetoDniCif = null;
         for(String dni : casosTestPass){
-            objetoDniCif = new DniCif(dni);
+            objetoDniCif = new Dni(dni);
             objetoDniCif.checkNumeroDni();  
             assertTrue(objetoDniCif.checkLetra());
         }
@@ -51,9 +51,9 @@ public class DniCifTest {
 
     @Test
     public void checkCIF() {
-        DniCif objetoDniCif = null;
+        Dni objetoDniCif = null;
         for(String dni : casosTestPass){
-            objetoDniCif = new DniCif(dni);   
+            objetoDniCif = new Dni(dni);   
             assertTrue(objetoDniCif.checkDni());
         }
     }

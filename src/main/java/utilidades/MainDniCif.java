@@ -3,7 +3,7 @@ package utilidades;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import dni.DniCif;
+import dni.Dni;
 
 public class MainDniCif {
 
@@ -34,7 +34,7 @@ public class MainDniCif {
 		System.out.println("\n ***** Casos Test FAIL ***** \n");
 		
 		for(String dni : casosTest){
-			DniCif objetoDniCif = new DniCif(dni);
+			Dni objetoDniCif = new Dni(dni);
 			// System.out.print(objetoDniCif.getDni());
 			
 			if( objetoDniCif.checkDni() ){
@@ -61,7 +61,7 @@ public class MainDniCif {
 		System.out.println("\n ***** Casos Test PASS ***** \n");
 		
 		for(String dni : casosTestPass){
-			DniCif objetoDniCif = new DniCif(dni);
+			Dni objetoDniCif = new Dni(dni);
 			// System.out.print(objetoDniCif.getDni());
 			
 			if( objetoDniCif.checkDni() ){
