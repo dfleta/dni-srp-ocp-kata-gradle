@@ -1,5 +1,5 @@
 package dni;
-
+	
 import java.io.IOException;
 
 public class DniCif {
