@@ -3,12 +3,6 @@ package dni;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
-import org.junit.BeforeClass;
-
 public class DniCifTest {
 
     private static final String[] casosTestPass = { //casos OK
@@ -39,7 +33,8 @@ public class DniCifTest {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-            assertEquals(objetoDniCif.getParteAlfabeticaDni(), objetoDniCif.obtenerLetra());
+            assertEquals(objetoDniCif.getParteAlfabeticaDni(), 
+                            objetoDniCif.obtenerLetra());
         }    
     }
 

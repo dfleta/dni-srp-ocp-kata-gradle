@@ -1,75 +1,70 @@
 package dni;
 	
-import java.io.IOException;
-
 public class DniCif {
 	
 		private String dni  = null;
 		private Boolean numeroSano = false;
-		private Boolean letraSana 	= false;
-		private Boolean dniCifSano  = false;
+		private Boolean letraSana = false;
+		private Boolean dniCifSano = false;
 		private final byte LONGITUD_DNI = 9;
-		// Composición (agregación) "Has - a" / "Tiene - un"
+		// "Has - a" / "Tiene - una"
 		private TablaAsignacion tabla = new TablaAsignacion();
-
-		/* Constructores */
-		
+	
 		public DniCif(String dni) {
 			this.dni = dni;
 		}
 		
 		/* Encapsulacion */
 		
-		public void setDni(String cadena){
+		public void setDni(String cadena) {
 			this.dni = cadena;
 		}
 
-		public String getDni(){
+		public String getDni() {
 			return this.dni;
 		}
 	
-		private void setNumeroSano(Boolean valor){
+		private void setNumeroSano(Boolean valor) {
 			this.numeroSano = valor;
 		}
 		
-		public Boolean getNumeroSano(){
+		public Boolean getNumeroSano() {
 			return this.numeroSano;
 		}
 		
-		private void setLetraSana(Boolean valor){
+		private void setLetraSana(Boolean valor) {
 			this.letraSana = valor;
 		}
 	
-		public Boolean getLetraSana(){
+		public Boolean getLetraSana() {
 			return this.letraSana;
 		}
 		
-		public void setDniCifSano(Boolean valor){
+		public void setDniCifSano(Boolean valor) {
 			this.dniCifSano = valor;
 		}
 		
-		public Boolean getDniCifSano(){
+		public Boolean getDniCifSano() {
 			return this.dniCifSano;
 		}
-		/*
-		 * Lógica 
-		 */
 	
 		/* Interfaz Pública */
 		
-		public Boolean checkCIF(){
-			setDniCifSano( checkDni() && checkLetra() );
+		public Boolean checkCIF() {
+			setDniCifSano(checkDni() && checkLetra());
 			return getDniCifSano();
 		}
 		
-		public Boolean checkDni(){
-			setNumeroSano( checkLongitud() && stringEsNumero( getParteNumericaDni() ) );
+		public Boolean checkDni() {
+			setNumeroSano(checkLongitud() 
+							&& stringEsNumero(getParteNumericaDni()));
 			return getNumeroSano();
 		}
 		
-		public Boolean checkLetra(){
-			if (getNumeroSano() ) {
-				setLetraSana ( Character.isUpperCase(getParteAlfabeticaDni()) && checkLetraValida() );
+		public Boolean checkLetra() {
+			if (getNumeroSano()) {
+				setLetraSana (Character.isUpperCase(getParteAlfabeticaDni()) 
+								&& checkLetraValida());
 				return getLetraSana();
 			}
 			else {
@@ -77,7 +72,7 @@ public class DniCif {
 			}
 		}
 						
-		public Character obtenerLetra(){
+		public Character obtenerLetra() {
 			// calcularLetra no puede ejecutarse si antes 
 			// no se cumplen las condiciones previas en
 			// checkDni y checkletra
@@ -94,9 +89,9 @@ public class DniCif {
 			return getDni().length() == this.LONGITUD_DNI;
 		}
 		
-		public Boolean stringEsNumero(String cadena){
-			for( int i=0; i < cadena.length(); i++ ){
-				if ( ! Character.isDigit(cadena.charAt(i)) ){
+		public Boolean stringEsNumero(String cadena) {
+			for (int i = 0; i < cadena.length(); i++) {
+				if (!Character.isDigit(cadena.charAt(i))){
 					return false;
 				}
 				else;
