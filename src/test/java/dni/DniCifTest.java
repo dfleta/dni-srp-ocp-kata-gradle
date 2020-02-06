@@ -16,13 +16,30 @@ public class DniCifTest {
         "26861694V","21616083Q","26868974Y","40135330P","89044648X",
         "80117501Z","34168723S","76857238R","66714505S","66499420A"};
 
+    @Test
+    public void getParteNumericaDni_stringEsNumero() {
+        DniCif objetoDniCif = null;
+        for(String dni : casosTestPass){
+            objetoDniCif = new DniCif(dni);
+            assertTrue(objetoDniCif.stringEsNumero(objetoDniCif.getParteNumericaDni()));
+        }
+    }
 
     @Test
     public void checkDni() {
         DniCif objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new DniCif(dni);
-                assertTrue(objetoDniCif.checkDni());
+            assertTrue(objetoDniCif.checkDni());
+        }    
+    }
+
+    @Test
+    public void obtenerLetra() {
+        DniCif objetoDniCif = null;
+        for(String dni : casosTestPass){
+            objetoDniCif = new DniCif(dni);
+            assertEquals(objetoDniCif.getParteAlfabeticaDni(), objetoDniCif.obtenerLetra());
         }    
     }
 
