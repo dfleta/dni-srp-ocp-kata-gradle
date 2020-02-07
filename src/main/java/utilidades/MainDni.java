@@ -1,6 +1,7 @@
 package utilidades;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import dni.Dni;
@@ -18,14 +19,14 @@ public class MainDni {
 		 * de la clase String de Java
 		 */
 		
-		ArrayList<String> casosTest = new ArrayList<>();
+		List<String> casosTest = new ArrayList<>();
 		
 		for (int i = 1; i <= numeroCasos; i++) {
 
 			caso = new StringBuilder("");
 
 			for (int j = 1; j < 9; j++) {
-				Integer caracterAscii = ThreadLocalRandom.current().nextInt(48, 59); // 58 excluido
+				Integer caracterAscii = ThreadLocalRandom.current().nextInt(48, 59);
 				caso.append(String.valueOf(Character.toChars(caracterAscii)));
 			}
 			Integer caracterAscii = ThreadLocalRandom.current().nextInt(65, 91);
@@ -33,7 +34,7 @@ public class MainDni {
 			casosTest.add(caso.toString());
 		}
 		
-		System.out.println("\n ***** Casos Test FAIL generados random ***** \n");
+		System.out.println("\n ***** Casos Test generados aleatoriamente ***** \n");
 		
 		for (String casoTest : casosTest) {
 			System.out.println(casoTest);
@@ -43,7 +44,7 @@ public class MainDni {
 		 * Manejo de la interfaz publica de la clase Dni
 		 */
 		
-		System.out.println("\n ***** Casos Test FAIL ***** \n");
+		System.out.println("\n ***** Casos Test aleatorios ***** \n");
 		
 		Dni objetoDni = null;
 		for (String dni : casosTest) {
@@ -59,7 +60,7 @@ public class MainDni {
 			
 			System.out.println("dni --> " + objetoDni.checkDni());
 			System.out.println("letra --> " + objetoDni.checkLetra());
-			
+
 			try {
 				System.out.println("La letra debería ser --> " + objetoDni.obtenerLetra());
 			}
@@ -77,7 +78,7 @@ public class MainDni {
 		 		"26861694V","21616083Q","26868974Y","40135330P","89044648X",
 		 		"80117501Z","34168723S","76857238R","66714505S","66499420A"};
 		
-		System.out.println("\n ***** Casos Test PASS ***** \n");
+		System.out.println("\n ***** Casos Test Correctos ***** \n");
 		
 		objetoDni = null;
 		for (String dni : casosTestPass) {

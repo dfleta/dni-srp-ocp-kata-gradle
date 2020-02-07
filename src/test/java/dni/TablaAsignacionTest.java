@@ -71,24 +71,24 @@ public class TablaAsignacionTest {
     public void calcularLetraNoPermitida() {
 			
 			int numeroCasos = 15;
-			String caso;
+            StringBuilder caso = null;
 			
 			List<String> casosTestKO = new ArrayList<>();
 			
 			for(int i = 1; i <= numeroCasos; i++) {
-                caso = "";
+                caso = new StringBuilder("");
                 // Genero un string de 8 dígitos entre 0 y 9 = dni
 				for(int j = 1; j < 9; j++){
                     // Genero un entero entre 48 y 57 = código ASCII de los números 0 al 9 y caracter :
 					Integer caracterAscii = ThreadLocalRandom.current().nextInt(48, 58); // 58 excluido
                     // convierto el entero a un string de chars y luego lo convierto en un String
-                    caso = caso + String.valueOf(Character.toChars(caracterAscii));
+                    caso.append(String.valueOf(Character.toChars(caracterAscii)));
                 }
                 // Extraigo al azar una letra del array de strings de letras no permitidas
 				// y la añado (concateno) al string dni
-                caso = caso + letrasNoPermitidas[ThreadLocalRandom.current().nextInt(0, 4)];
+                caso.append(letrasNoPermitidas[ThreadLocalRandom.current().nextInt(0, 4)]);
                 // inicializo el array con los casos test FAIL en la posición adecuada
-				casosTestKO.add(caso);
+                casosTestKO.add(caso.toString());
             }
             
             assertFalse(testCalcularLetra(casosTestKO, tabla));
