@@ -2,7 +2,7 @@ package dni;
 	
 public class Dni {
 	
-	private String dni = null;
+	private final String dni;
 	private Boolean numeroSano = false;
 	private Boolean letraSana = false;
 	private Boolean dniCifSano = false;
@@ -45,6 +45,10 @@ public class Dni {
 	private Boolean isDniSano() {
 		return this.dniCifSano;
 	}
+	
+	private TablaAsignacion getTablaAsignacion(){
+		return this.tabla;
+	}
 
 	/**
 	 * Interfaz Pública
@@ -83,7 +87,7 @@ public class Dni {
 		// checkDni y checkLetra
 		checkNumeroDni();
 		if (isNumeroSano()) {
-			return this.tabla.calcularLetra(extraerParteNumericaDni());
+			return getTablaAsignacion().calcularLetra(extraerParteNumericaDni());
 		} else {
 			// si el DNI no esta bien formado
 			return Character.MIN_VALUE;

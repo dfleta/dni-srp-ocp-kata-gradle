@@ -20,12 +20,6 @@ public class TablaAsignacionTest {
         tabla = new TablaAsignacion();
     }
 
-    @Test
-    public void longitudTablaAsignacion() {
-        final int LONGITUD_TABLA = 23;
-        assertEquals(LONGITUD_TABLA, tabla.getModulo());
-    }
-
     @Test 
     public void getLetraTablaAsignacion() {
 		assertEquals('T', tabla.getLetra(0));

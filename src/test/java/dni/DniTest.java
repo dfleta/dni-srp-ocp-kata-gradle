@@ -21,7 +21,7 @@ public class DniTest {
     }
 
     @Test
-    public void checkDni() {
+    public void checkNumeroDni() {
         Dni objetoDniCif = null;
         for(String dni : casosTestPass){
             objetoDniCif = new Dni(dni);
