@@ -9,15 +9,20 @@ public class TablaAsignacion {
 
 	public TablaAsignacion() {};
 
+
 	/**
 	 * Interfaz
 	 */
 
 	public char calcularLetra(String DNI){
-		// Obtener el numero del dni del string => dni sano
-		// Dividirlo por el número de letras (actualmente 23) 
-		// y obtener el resto (división módulo)
-		// Consultar TablaAsignacion con ese resto = posicion
+
+		/** 
+		 * Obtener el numero del dni del string => dni sano
+		 * Dividirlo por el número de letras (actualmente 23) 
+		 * y obtener el resto (división módulo)
+		 * Consultar TablaAsignacion con ese resto = posicion
+		 */
+		
 		int dni = Integer.parseInt(DNI);
 		int posicion = dni % getModulo();
 		return getLetra(posicion);
@@ -32,6 +37,15 @@ public class TablaAsignacion {
 	 */
 
 	char getLetra(int posicion) throws ArrayIndexOutOfBoundsException { 
+		
+		/** 
+		 * Code complete:
+		 * Manejar las excepciones lo más localmente posible.
+		 * Aqui corresponderían aserciones.
+		 * La barricada debería estar en el constructor 
+		 * de la clase DNI.
+		 */
+
 		try{
 			return this.tabla[posicion];
 		}

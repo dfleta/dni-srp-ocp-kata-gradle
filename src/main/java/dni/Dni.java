@@ -15,7 +15,7 @@ public class Dni {
 	}
 
 	/**
-	 * Encapsulacion
+	 * Encapsulacion & Information hiding
 	 */
 
 	private String getDni() {

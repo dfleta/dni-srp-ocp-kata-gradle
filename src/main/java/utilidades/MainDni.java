@@ -11,6 +11,12 @@ public class MainDni {
 		
 		int numeroCasos = 25;
 		StringBuilder caso = null;
+
+		/**
+		 * Generar 25 casos test incorrectos
+		 * Este kata es para practicar manejo 
+		 * de la clase String de Java
+		 */
 		
 		ArrayList<String> casosTest = new ArrayList<>();
 		
@@ -32,11 +38,16 @@ public class MainDni {
 		for (String casoTest : casosTest) {
 			System.out.println(casoTest);
 		}
+
+		/** 
+		 * Manejo de la interfaz publica de la clase Dni
+		 */
 		
 		System.out.println("\n ***** Casos Test FAIL ***** \n");
 		
 		Dni objetoDni = null;
 		for (String dni : casosTest) {
+
 			objetoDni = new Dni(dni);
 			System.out.print(objetoDni.toString());
 			
@@ -48,6 +59,7 @@ public class MainDni {
 			
 			System.out.println("dni --> " + objetoDni.checkDni());
 			System.out.println("letra --> " + objetoDni.checkLetra());
+			
 			try {
 				System.out.println("La letra debería ser --> " + objetoDni.obtenerLetra());
 			}
@@ -55,6 +67,10 @@ public class MainDni {
 				System.out.println("La letra es --> " + objetoDni.toString().charAt(8));
 			}
 		}
+
+		/**
+		 * Casos test correctos
+		 */
 		
 		String[] casosTestPass = { //casos OK
 		 		"78484464T","72376173A","01817200Q","95882054E","63587725Q",
@@ -65,6 +81,7 @@ public class MainDni {
 		
 		objetoDni = null;
 		for (String dni : casosTestPass) {
+
 			objetoDni = new Dni(dni);
 			System.out.print(objetoDni.toString());
 			
@@ -73,8 +90,10 @@ public class MainDni {
 			} else {
 				System.out.println(" FAIL");
 			}
+
 			System.out.println("dni --> " + objetoDni.checkDni());
 			System.out.println("letra --> " + objetoDni.checkLetra());
+
 			try {
 				System.out.println("La letra debería ser --> " 
 										+ objetoDni.obtenerLetra());
