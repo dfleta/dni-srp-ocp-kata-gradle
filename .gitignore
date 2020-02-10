@@ -154,3 +154,9 @@ buildNumber.properties
 .classpath
 .settings/
 .vscode/
+
+######################
+###### Resources #####
+######################
+
+modelo_de_datos.jpg
