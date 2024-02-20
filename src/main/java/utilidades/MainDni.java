@@ -87,7 +87,7 @@ public class MainDni {
 		for (String dni : casosTestPass) {
 
 			objetoDni = Optional.of(new Dni(dni));
-			System.out.print(objetoDni.toString());
+			objetoDni.ifPresent(System.out::println);
 			
 			if (objetoDni.get().checkDni()) {
 				System.out.println(" PASS");
