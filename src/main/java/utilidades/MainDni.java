@@ -2,6 +2,7 @@ package utilidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
 import dni.Dni;
@@ -46,26 +47,28 @@ public class MainDni {
 		
 		System.out.println("\n ***** Casos Test aleatorios ***** \n");
 		
-		Dni objetoDni = null;
+		// Dni objetoDni = null;
+		Optional<Dni> objetoDni = Optional.empty();
 		for (String dni : casosTest) {
 
-			objetoDni = new Dni(dni);
-			System.out.print(objetoDni.toString());
+			// objetoDni = new Dni(dni);
+			objetoDni = Optional.of(new Dni(dni));
+			objetoDni.ifPresent(System.out::println);
 			
-			if (objetoDni.checkDni()) {
+			if (objetoDni.get().checkDni()) {
 				System.out.println(" PASS");
 			} else {
 				System.out.println(" FAIL");
 			}
 			
-			System.out.println("dni --> " + objetoDni.checkDni());
-			System.out.println("letra --> " + objetoDni.checkLetra());
+			System.out.println("dni --> " + objetoDni.get().checkDni());
+			System.out.println("letra --> " + objetoDni.get().checkLetra());
 
 			try {
-				System.out.println("La letra debería ser --> " + objetoDni.obtenerLetra());
+				System.out.println("La letra debería ser --> " + objetoDni.get().obtenerLetra());
 			}
 			catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("La letra es --> " + objetoDni.toString().charAt(8));
+				System.out.println("La letra es --> " + objetoDni.get().toString().charAt(8));
 			}
 		}
 
@@ -80,27 +83,27 @@ public class MainDni {
 		
 		System.out.println("\n ***** Casos Test Correctos ***** \n");
 		
-		objetoDni = null;
+		objetoDni = Optional.empty();
 		for (String dni : casosTestPass) {
 
-			objetoDni = new Dni(dni);
-			System.out.print(objetoDni.toString());
+			objetoDni = Optional.of(new Dni(dni));
+			objetoDni.ifPresent(System.out::println);
 			
-			if (objetoDni.checkDni()) {
+			if (objetoDni.get().checkDni()) {
 				System.out.println(" PASS");
 			} else {
 				System.out.println(" FAIL");
 			}
 
-			System.out.println("dni --> " + objetoDni.checkDni());
-			System.out.println("letra --> " + objetoDni.checkLetra());
+			System.out.println("dni --> " + objetoDni.get().checkDni());
+			System.out.println("letra --> " + objetoDni.get().checkLetra());
 
 			try {
 				System.out.println("La letra debería ser --> " 
-										+ objetoDni.obtenerLetra());
+										+ objetoDni.get().obtenerLetra());
 			} catch (ArrayIndexOutOfBoundsException e) {
 				System.out.println("La letra es --> " +
-									objetoDni.toString().charAt(8));
+									objetoDni.get().toString().charAt(8));
 			}
 		}
 	}
