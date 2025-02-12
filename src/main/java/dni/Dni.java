@@ -14,7 +14,7 @@ public class Dni {
 		this.dni = dni;
 	}
 
-	/**
+	/*
 	 * Encapsulacion & Information hiding
 	 */
 
@@ -50,7 +50,7 @@ public class Dni {
 		return this.tabla;
 	}
 
-	/**
+	/*
 	 * Interfaz Pública
 	 */
 
@@ -94,7 +94,7 @@ public class Dni {
 		}
 	}
 
-	/**
+	/*
 	 * Implementacion 
 	 */
 
@@ -121,6 +121,6 @@ public class Dni {
 	}
 
 	private Boolean checkLetraValida() {
-		return extraerParteAlfabeticaDni() == obtenerLetra();
+		return extraerParteAlfabeticaDni().equals(obtenerLetra());
 	}
 }

@@ -35,7 +35,7 @@ public class TablaAsignacionTest {
     public void letraNoPermitida() {
         
         for (char letra : letrasNoPermitidas) {
-            assertFalse(tabla.letraPermitida(letra));
+            assertFalse(tabla.isLetraPermitida(letra));
         }
     }
 
