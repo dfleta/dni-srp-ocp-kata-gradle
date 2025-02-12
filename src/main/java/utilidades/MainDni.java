@@ -14,7 +14,7 @@ public class MainDni {
 		int numeroCasos = 25;
 		StringBuilder caso = null;
 
-		/**
+		/*
 		 * Generar 25 casos test incorrectos
 		 * Este kata es para practicar manejo 
 		 * de la clase String de Java
@@ -41,7 +41,7 @@ public class MainDni {
 			System.out.println(casoTest);
 		}
 
-		/** 
+		/*
 		 * Manejo de la interfaz publica de la clase Dni
 		 */
 		
@@ -72,7 +72,7 @@ public class MainDni {
 			}
 		}
 
-		/**
+		/*
 		 * Casos test correctos
 		 */
 		

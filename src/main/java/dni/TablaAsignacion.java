@@ -10,16 +10,13 @@ class TablaAsignacion {
 	TablaAsignacion() {};
 
 
-	/**
-	 * Interfaz
-	 */
+	// Interfaz
 
 	char calcularLetra(String DNI){
 
-		/** 
-		 * Obtener el numero del dni del string => dni sano
-		 * Dividirlo por el número de letras (actualmente 23) 
-		 * y obtener el resto (división módulo)
+		/* Obtener el numero del dni del string => dni sano
+		 * Dividirlo por el número de letras (actualmente 23)
+		 * obtener el resto (división módulo)
 		 * Consultar TablaAsignacion con ese resto = posicion
 		 */
 		
@@ -28,24 +25,23 @@ class TablaAsignacion {
 		return getLetra(posicion);
 	}
 
-	/**
+	/*
 	 * Implementacion
 	 */
 
 	char getLetra(int posicion) throws ArrayIndexOutOfBoundsException { 
 		
-		/** 
-		 * Code complete:
+		/* Code complete:
 		 * Manejar las excepciones lo más localmente posible.
 		 * Aqui corresponderían aserciones.
 		 * La barricada debería estar en el constructor 
 		 * de la clase DNI.
 		 */
 
-		try{
+		try {
 			return this.tabla[posicion];
 		}
-		catch(ArrayIndexOutOfBoundsException exception){
+		catch(ArrayIndexOutOfBoundsException exception) {
 			throw new ArrayIndexOutOfBoundsException(
 				"Posicion fuera de los limites de la tabla de asignacion");
 		}
@@ -55,7 +51,7 @@ class TablaAsignacion {
 		return this.tabla.length;
 	}
 	
-	Boolean letraPermitida(char letra) {
+	Boolean isLetraPermitida(char letra) {
 		String tablaString = String.valueOf(tabla);
 		// contains() requiere una secuencia de caracteres: 
 		// convertir el caracter letra a un string
